@@ -1,0 +1,101 @@
+Question,SQL_Query
+What is the average price of items in the dataset?,SELECT AVG(Price) as avg_price FROM table_name;
+Which brand has the highest average rating for its products?,"SELECT Brand, AVG(Rating) as avg_rating FROM table_name GROUP BY Brand ORDER BY avg_rating DESC LIMIT 1;"
+What is the most common delivery time for items in the dataset?,"SELECT deleivery_time, COUNT(deleivery_time) as count FROM table_name GROUP BY deleivery_time ORDER BY count DESC LIMIT 1;"
+Which seller has the highest average shipment rating?,"SELECT seller_name, AVG(shipment_rating) as avg_shipment_rating FROM table_name GROUP BY seller_name ORDER BY avg_shipment_rating DESC LIMIT 1;"
+How many items in the dataset have a discount greater than 50%?,SELECT COUNT(*) as count_discount_above_50 FROM table_name WHERE Discount > 50; 
+Which products have a rating greater than 4.5 and a discount greater than 30%?,SELECT * FROM table_name WHERE Rating > 4.5 AND Discount > 30; 
+What is the total count of reviews for each brand in the dataset?,"SELECT Brand, SUM(`Count of Rev`) as total_reviews FROM table_name GROUP BY Brand; "
+What is the average delivery price for items with a price greater than 100?,SELECT AVG(deleivery_price) as avg_delivery_price FROM table_name WHERE Price > 100; 
+How many items have a seller rating greater than 4.8 and a shipment rating greater than 4.5?,SELECT COUNT(*) as count_items FROM table_name WHERE Seller_rating > 4.8 AND shipment_rating > 4.5; 
+Which country has the highest average discount for its products?,"SELECT Country, AVG(Discount) as avg_discount FROM table_name GROUP BY Country ORDER BY avg_discount DESC LIMIT 1;"
+What is the average price of the items in the CSV file?,SELECT AVG(price) AS average_price FROM table_name; 
+Which brand has the highest average rating for its products?,"SELECT brand, AVG(rating) AS average_rating FROM table_name GROUP BY brand ORDER BY average_rating DESC LIMIT 1; "
+How many items in the CSV file have a discount greater than 20%?,SELECT COUNT(*) FROM table_name WHERE discount > 20; 
+Which seller has the highest rating for shipping?,"SELECT seller, AVG(shipping_rating) AS avg_shipping_rating FROM table_name GROUP BY seller ORDER BY avg_shipping_rating DESC LIMIT 1; "
+What is the most common delivery time for the items in the CSV file?,"SELECT delivery_time, COUNT(*) AS delivery_count FROM table_name GROUP BY delivery_time ORDER BY delivery_count DESC LIMIT 1; "
+Which country has the highest average price for the items in the CSV file?,"SELECT country, AVG(price) AS avg_price FROM table_name GROUP BY country ORDER BY avg_price DESC LIMIT 1; "
+What is the correlation between the price and the rating of the items in the CSV file?,"SELECT CORR(price, rating) AS correlation FROM table_name; "
+Which product has the most reviews in the CSV file?,"SELECT product, COUNT(*) AS review_count FROM table_name GROUP BY product ORDER BY review_count DESC LIMIT 1; "
+What is the most common delivery price for the items in the CSV file?,"SELECT delivery_price, COUNT(*) AS delivery_count FROM table_name GROUP BY delivery_price ORDER BY delivery_count DESC LIMIT 1; "
+Which product has the highest ratio of discounted price to original price?,"SELECT product, (discounted_price / original_price) AS discount_ratio FROM table_name ORDER BY discount_ratio DESC LIMIT 1; "
+Which seller has the highest number of reviews in the CSV file?,"SELECT seller, COUNT(*) AS review_count FROM table_name GROUP BY seller ORDER BY review_count DESC LIMIT 1; "
+What is the range of prices for the items in the CSV file?,"SELECT MIN(price) AS min_price, MAX(price) AS max_price FROM table_name; "
+Which product has the highest rating in the CSV file?,"SELECT product, MAX(rating) AS highest_rating FROM table_name; "
+How many products in the CSV file have a rating greater than 4.5?,SELECT COUNT(*) FROM table_name WHERE rating > 4.5; 
+What is the average number of reviews per product in the CSV file?,"SELECT AVG(review_count) AS avg_review_count FROM (SELECT product, COUNT(*) AS review_count FROM table_name GROUP BY product) AS product_review_count; "
+Which brand has the most products in the CSV file?,"SELECT brand, COUNT(*) AS product_count FROM table_name GROUP BY brand ORDER BY product_count DESC LIMIT 1; "
+What is the distribution of delivery times for the items in the CSV file?,"SELECT delivery_time, COUNT(*) AS delivery_count FROM table_name GROUP BY delivery_time ORDER BY delivery_time; "
+How many products in the CSV file have a delivery time of less than 3 days?,SELECT COUNT(*) FROM table_name WHERE delivery_time < 3; 
+Which country has the lowest average price for the items in the CSV file?,"SELECT country, AVG(price) AS avg_price FROM table_name GROUP BY country ORDER BY avg_price LIMIT 1; "
+What is the correlation between the discount and the original price of the items in the CSV file?,"SELECT CORR(discount, original_price) AS correlation FROM table_name; "
+What is the average rating of products sold by sellers with a rating greater than 4.5?,SELECT AVG(rating) AS avg_rating FROM table_name WHERE seller IN (SELECT seller FROM table_name WHERE rating > 4.5 GROUP BY seller); 
+Which seller has the lowest delivery price in the CSV file?,"SELECT seller, MIN(delivery_price) AS min_delivery_price FROM table_name GROUP BY seller ORDER BY min_delivery_price LIMIT 1; "
+What is the distribution of prices for products sold by a specific seller in the CSV file?,"SELECT price, COUNT(*) AS product_count FROM table_name WHERE seller = 'your_seller_name' GROUP BY price ORDER BY price; "
+How many products in the CSV file have a rating greater than 4 and a discount greater than 10%?,SELECT COUNT(*) FROM table_name WHERE rating > 4 AND discount > 10; 
+Which product has the highest ratio of reviews to the count of reviews in the CSV file?,"SELECT product, (COUNT(*) / SUM(COUNT(*)) OVER ()) AS review_ratio FROM table_name GROUP BY product ORDER BY review_ratio DESC LIMIT 1; "
+What is the most common seller rating for the sellers in the CSV file?,"SELECT seller_rating, COUNT(*) AS seller_count FROM table_name "
+How many products in the CSV file have a delivery time of more than 7 days?,SELECT COUNT(*) FROM products WHERE delivery_time > 7; 
+What is the distribution of discounts for the products in the CSV file?,"SELECT discount, COUNT(*) FROM products GROUP BY discount ORDER BY discount; "
+Which seller has the highest chat response rate in the CSV file?,"SELECT seller_name, AVG(chat_response_rate) as avg_chat_response_rate FROM sellers GROUP BY seller_name ORDER BY avg_chat_response_rate DESC LIMIT 1; "
+How many products in the CSV file have a rating greater than 4 and a delivery time of less than 3 days?,SELECT COUNT(*) FROM products WHERE rating > 4 AND delivery_time < 3; 
+What is the average number of days for delivery for the items in the CSV file?,SELECT AVG(delivery_time) as avg_delivery_time FROM products; 
+Which product has the highest number of reviews in the CSV file?,"SELECT product_name, MAX(reviews) as max_reviews FROM products; "
+How many sellers are there in the CSV file?,SELECT COUNT(DISTINCT seller_name) as num_sellers FROM products; 
+Which seller has the highest number of products in the CSV file?,"SELECT seller_name, COUNT(*) as num_products FROM products GROUP BY seller_name ORDER BY num_products DESC LIMIT 1; "
+What is the average discount for the products in the CSV file?,SELECT AVG(discount) as avg_discount FROM products; 
+Which country has the highest number of products in the CSV file?,"SELECT country, COUNT(*) as num_products FROM products GROUP BY country ORDER BY num_products DESC LIMIT 1; "
+How many products in the CSV file have a brand rating greater than 4.5?,SELECT COUNT(*) as num_products FROM products WHERE brand_rating > 4.5; 
+What is the correlation between the price and the discount of the items in the CSV file?,"SELECT CORR(price, discount) as corr_price_discount FROM products; "
+Which product has the highest original price in the CSV file?,"SELECT product_name, MAX(price) as max_price FROM products; "
+What is the most common seller rating for the sellers in a specific country in the CSV file?,"SELECT seller_rating, COUNT(*) as num_sellers FROM products WHERE country = 'specific_country' GROUP BY seller_rating ORDER BY num_sellers DESC LIMIT 1; "
+How many products in the CSV file have a rating greater than 4 and a delivery price of less than 250?,SELECT COUNT(*) as num_products FROM products WHERE rating > 4 AND delivery_price < 250; 
+Which product has the highest ratio of rating to price in the CSV file?,"SELECT product_name, rating / price as ratio FROM products ORDER BY ratio DESC LIMIT 1; "
+What is the distribution of brand ratings for the products in the CSV file?,"SELECT brand_rating, COUNT(*) as num_products FROM products GROUP BY brand_rating; "
+How many products in the CSV file have a chat response time of less than 1 hour?,SELECT COUNT(*) as num_products FROM products WHERE chat_response_time < '01:00:00'; 
+What is the average shipment rating for the sellers in the CSV file?,SELECT AVG(shipment_rating) as avg_shipment_rating FROM products; 
+Which seller has the highest number of reviews for products with a rating greater than 4 in the CSV file?,"SELECT seller_name, SUM(reviews) as total_reviews FROM products WHERE rating > 4 GROUP BY seller_name ORDER BY total_reviews DESC LIMIT 1; "
+How many products in the CSV file have a delivery time of less than 1 day?,SELECT COUNT(*) as num_products FROM products WHERE delivery_time < 1; 
+What is the distribution of ratings for products sold by a specific seller in the CSV file?,"SELECT rating, COUNT(*) as num_products FROM products WHERE seller_name = 'specific_seller' GROUP BY rating; "
+Which product has the highest number of reviews for products with a delivery time of less than 2 days in the CSV file?,"SELECT product_name, delivery_time, COUNT(review_id) AS num_reviews  FROM products  JOIN reviews ON products.product_id = reviews.product_id  WHERE delivery_time < 2  GROUP BY products.product_id  ORDER BY num_reviews DESC  LIMIT 1; "
+How many products in the CSV file have a rating greater than 4 and a discount of less than 10%?,SELECT COUNT(*) AS num_products  FROM products  WHERE rating > 4 AND discount < 10; 
+What is the average delivery price for the items in the CSV file?,SELECT AVG(delivery_price) AS avg_delivery_price FROM table_name; 
+Which product has the highest discount in the CSV file?,SELECT * FROM table_name WHERE discount = (SELECT MAX(discount) FROM table_name); 
+How many products in the CSV file have a brand rating greater than 4?,SELECT COUNT(*) AS num_products FROM table_name WHERE brand_rating > 4; 
+Which country has the highest number of sellers in the CSV file?,"SELECT country, COUNT(DISTINCT seller_id) AS num_sellers FROM table_name GROUP BY country ORDER BY num_sellers DESC LIMIT 1; "
+What is the most common chat response time for the sellers in the CSV file?,"SELECT chat_response_time, COUNT(*) AS num_sellers FROM table_name GROUP BY chat_response_time ORDER BY num_sellers DESC LIMIT 1; "
+How many products in the CSV file have a delivery time of more than 14 days?,SELECT COUNT(*) AS num_products FROM table_name WHERE delivery_time > 14; 
+Which product has the highest number of reviews for products with a delivery time of less than 3 days in the CSV file?,SELECT * FROM table_name WHERE delivery_time < 3 AND reviews = (SELECT MAX(reviews) FROM table_name WHERE delivery_time < 3); 
+What is the correlation between the rating and the count of reviews for the items in the CSV file?,"SELECT CORR(rating, reviews) AS correlation FROM table_name; "
+How many products in the CSV file have a seller rating greater than 4.5 and a delivery price of less than 150?,SELECT COUNT(*) AS num_products FROM table_name WHERE seller_rating > 4.5 AND delivery_price < 150; 
+What is the most common shipment rating for the sellers in the CSV file?,"SELECT shipment_rating, COUNT(*) AS num_sellers FROM table_name GROUP BY shipment_rating ORDER BY num_sellers DESC LIMIT 1; "
+Which seller has the highest number of reviews for products with a delivery time of less than 1 day in the CSV file?,"SELECT seller_id, SUM(reviews) AS total_reviews FROM table_name WHERE delivery_time < 1 GROUP BY seller_id ORDER BY total_reviews DESC LIMIT 1; "
+How many products in the CSV file have a discount of more than 30%?,SELECT COUNT(*) AS num_products FROM table_name WHERE discount > 30; 
+What is the distribution of original prices for the products in the CSV file?,"SELECT original_price, COUNT(*) AS num_products FROM table_name GROUP BY original_price; "
+Which product has the highest number of reviews for products with a discount of less than 10% in the CSV file?,SELECT * FROM table_name WHERE discount < 10 AND reviews = (SELECT MAX(reviews) FROM table_name WHERE discount < 10); 
+How many products in the CSV file have a rating greater than 4 and a chat response time of less than 30 minutes?,SELECT COUNT(*) AS num_products FROM table_name WHERE rating > 4 AND chat_response_time < 30 
+What is the distribution of discounts for products sold by a specific seller in the CSV file?,"SELECT discount, COUNT(*) as count FROM products WHERE seller_name = 'specific seller name' GROUP BY discount ORDER BY count DESC; "
+Which seller has the highest number of products with a delivery time of less than 2 days in the CSV file?,"SELECT seller_name, COUNT(*) as count FROM products WHERE delivery_time < 2 GROUP BY seller_name ORDER BY count DESC LIMIT 1; "
+How many products in the CSV file have a delivery price of less than 150 and a delivery time of less than 3 days?,SELECT COUNT(*) as count FROM products WHERE delivery_price < 150 AND delivery_time < 3; 
+What is the most common rating for the products in the CSV file?,"SELECT rating, COUNT(*) as count FROM products GROUP BY rating ORDER BY count DESC LIMIT 1; "
+Which product has the highest ratio of discount to original price in the CSV file?,"SELECT product_name, discount/original_price as ratio FROM products ORDER BY ratio DESC LIMIT 1; "
+What is the distribution of ratings for the products in the CSV file with a delivery time of less than 5 days and a delivery price of less than 100?,"SELECT rating, COUNT(*) AS count FROM products WHERE delivery_time < 5 AND delivery_price < 100 GROUP BY rating; "
+How many products in the CSV file have a seller rating greater than 4 and a shipment rating greater than 4?,SELECT COUNT(*) AS count FROM products WHERE seller_rating > 4 AND shipment_rating > 4; 
+Which seller has the highest ratio of seller rating to shipment rating in the CSV file?,"SELECT seller_name, seller_rating/shipment_rating AS ratio FROM sellers ORDER BY ratio DESC LIMIT 1; "
+What is the correlation between the delivery time and the count of reviews for the products in the CSV file?,"SELECT CORR(delivery_time, review_count) AS correlation FROM products; "
+How many sellers in the CSV file have a chat response time of less than 10 minutes and a shipment rating greater than 4?,SELECT COUNT(*) AS count FROM sellers WHERE chat_response_time < 10 AND shipment_rating > 4; 
+Which product has the highest number of reviews for products with a delivery time of less than 2 days and a brand rating greater than 4 in the CSV file?,"SELECT product_name, MAX(review_count) AS max_reviews FROM products WHERE delivery_time < 2 AND brand_rating > 4 GROUP BY product_name ORDER BY max_reviews DESC LIMIT 1; "
+How many products in the CSV file have a discount of more than 20% and a delivery time of less than 10 days?,SELECT COUNT(*) AS count FROM products WHERE discount > 20 AND delivery_time < 10; 
+What is the most common seller rating for the sellers in the CSV file with a shipment rating greater than 4?,"SELECT seller_rating, COUNT(*) AS count FROM sellers WHERE shipment_rating > 4 GROUP BY seller_rating ORDER BY count DESC LIMIT 1; "
+Which product has the highest ratio of reviews to count of reviews in the CSV file?,"SELECT product_name, review_count/count_reviews AS ratio FROM products ORDER BY ratio DESC LIMIT 1; "
+How many products in the CSV file have a delivery price of less than 150 and a delivery time of less than 5 days?,SELECT COUNT(*) AS count FROM products WHERE delivery_price < 5 AND delivery_time < 150; 
+What is the distribution of brand ratings for the products in the CSV file?,"SELECT brand_rating, COUNT(*) AS count FROM products GROUP BY brand_rating; "
+Which seller has the highest number of products with a brand rating greater than 4 and a shipment rating greater than 4 in the CSV file?,"SELECT seller_name, COUNT(*) AS count FROM products WHERE brand_rating > 4 AND shipment_rating > 4 GROUP BY seller_name ORDER BY count DESC LIMIT 1; "
+How many products in the CSV file have a discount of more than 30% and a delivery price of less than 250 and a delivery time of less than 3 days?,SELECT COUNT(*) AS count FROM products WHERE discount > 30 AND delivery_price < 250 AND delivery_time < 3; 
+What is the correlation between the delivery price and the count of reviews for the products in the CSV file?,"SELECT CORR(delivery_price, count_of_reviews) AS correlation FROM products; "
+Which product has the highest number of reviews for products with a brand rating greater than 4 and a shipment rating greater than 4 in the CSV file?,"SELECT product_name, MAX(count_of_reviews) AS max_reviews FROM products WHERE brand_rating > 4 AND shipment_rating > 4 GROUP BY product_name ORDER BY max_reviews DESC LIMIT 1; "
+How many sellers in the CSV file have a chat response time of less than 5 minutes and a shipment rating greater than 4.5?,SELECT COUNT(*) AS num_sellers FROM sellers WHERE chat_response_time < 5 AND shipment_rating > 4.5; 
+What is the distribution of delivery times for the products in the CSV file with a delivery price of less than 150?,"SELECT delivery_time, COUNT(*) AS num_products FROM products WHERE delivery_price < 150 GROUP BY delivery_time; "
+Which seller has the highest ratio of seller rating to chat response time in the CSV file?,"SELECT seller_name, seller_rating / chat_response_time AS ratio FROM sellers ORDER BY ratio DESC LIMIT 1; "
+How many products in the CSV file have a discount of more than 10% and a brand rating greater than 4 and a delivery time of less than 5 days?,SELECT COUNT(*) AS num_products FROM products WHERE discount > 0.1 AND brand_rating > 4 AND delivery_time < 5; 
+What is the most common shipment rating for the sellers in the CSV file with a chat response time of less than 1 minute?,"SELECT shipment_rating, COUNT(*) AS num_sellers FROM sellers WHERE chat_response_time < 1 GROUP BY shipment_rating ORDER BY num_sellers DESC LIMIT 1; "
